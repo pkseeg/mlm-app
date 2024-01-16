@@ -22,8 +22,10 @@ function App() {
   }, [setupPhase]);
 
   async function getSentences() {
+    console.log("dataset_name:", `sentences_${datasetValue}`);
     const { data } = await supabase.from(`sentences_${datasetValue}`).select();
     setSentences(data);
+    console.log("collected data:", data);
 
     if (data.length > 0) {
       setInputValues(new Array(data[0].masked.split("[MASK]").length).fill(""));
@@ -31,7 +33,7 @@ function App() {
   }
 
   async function insertResponses(sentenceId, values) {
-    const { data, error } = await supabase.from("responses").upsert([
+    const { data, error } = await supabase.from(`responses_${datasetValue}`).upsert([
       {
         sentence_id: sentenceId,
         dataset: datasetValue,
