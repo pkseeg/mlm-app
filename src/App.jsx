@@ -66,13 +66,6 @@ function App() {
     setInputValues(new Array(sentences[currentSentenceIndex]?.masked.split("[MASK]").length).fill(""));
   };
 
-  // also should add a link to my website at the bottom of the page!
-  // other questions: how much other info do I care to get? names? other demographics? idk
-  // next steps: 
-  // 1) need to create a good dataset of samples. Then, instead of just grabbing all of them, 
-  //    we should grab a random sample of 20-50 of them.
-  // 2) need to deploy this on the web somewhere, set it up so when I update it just fixes things
-  // 3) need to write some code to automatically analyze these results (i.e. graph them, then set up the HF code)
   return (
     <div>
       {totalCollected < sentences.length ? (
