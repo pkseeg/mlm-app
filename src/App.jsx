@@ -107,6 +107,7 @@ function App() {
       ) : totalCollected < sentences.length ? (
         <React.Fragment>
           <p>Respond with the first word that comes to mind for each input. Responses should be one word each, and completed sentences should make sense gramatically.</p>
+          <p>Don't worry about being factually correct, just give your best guesses!</p>
           <ul>
             {sentences[currentSentenceIndex]?.masked.split("[MASK]").map((part, maskIndex, array) => (
               <React.Fragment key={maskIndex}>
